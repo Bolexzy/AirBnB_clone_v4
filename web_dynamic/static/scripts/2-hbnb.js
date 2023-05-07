@@ -11,11 +11,12 @@ $('document').ready(function () {
   });
 
 // toggle class on div#api_status
-$.get('http://0.0.0.0:5001/api/v1/status/', (body, status) => {
-  if (status === 'OK') {
-    $('div#api_status').addClass('available')
-  } else {
-    $('div#api_status').removeClass('available');
-  }
-});
+  const url = 'http://' + window.location.hostname + ':5001/api/v1/status/';
+  $.get(url, (body, status) => {
+    if (status === 'OK') {
+      $('div#api_status').addClass('available')
+    } else {
+      $('div#api_status').removeClass('available');
+    }
+  });
 });
