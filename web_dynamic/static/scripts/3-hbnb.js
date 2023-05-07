@@ -1,5 +1,7 @@
 /* Script that listen for changes on each INPUT checkbox tag */
 $('document').ready(function () {
+  const domain = 'http://' + window.location.hostname;
+
   const amenities = {};
   $('INPUT[type="checkbox"]').change(function () {
     if ($(this).prop('checked')) {
@@ -11,7 +13,7 @@ $('document').ready(function () {
   });
 
 // toggle class on div#api_status
-  $.get('http://0.0.0.0:5001/api/v1/status/', (body, status) => {
+  $.get(domain + ':5001/api/v1/status/', (body, status) => {
     if (status === 'OK') {
       $('div#api_status').addClass('available')
     } else {
@@ -20,7 +22,7 @@ $('document').ready(function () {
   });
 
   $.ajax({
-    url: 'http://0.0.0.0:5001/api/v1/places_search/',
+    url: domain + ':5001/api/v1/places_search/',
     type: 'POST',
     data: JSON.stringify({}),
     contentType: 'application/json',
