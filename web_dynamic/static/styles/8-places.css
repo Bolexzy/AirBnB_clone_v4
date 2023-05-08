@@ -95,3 +95,15 @@ div.information {
     text-align: left;
     margin-top: 10px;
 }
+
+
+.reviews ul {
+      margin: 0;
+      padding: 0;
+}
+
+.reviews ul li {
+      font-size: 12px;
+      margin-bottom: 15px;
+      text-align: left;
+}
